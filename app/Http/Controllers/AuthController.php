@@ -13,6 +13,6 @@ class AuthController extends Controller
 {
     public function getToken()
     {
-        return "wangyuxiang";
+        return \Request::input("echostr");
     }
 }
