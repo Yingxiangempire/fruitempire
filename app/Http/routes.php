@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/auth/oauth', 'Auth\AuthController@oauth');
 # 微信接口回调地址
 Route::get('/auth/callback', 'Auth\AuthController@callback');
+Route::controller('/auth', 'AuthController');
