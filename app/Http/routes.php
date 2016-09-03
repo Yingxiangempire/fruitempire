@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+
+
+
+Route::get('/auth/oauth', 'Auth\AuthController@oauth');
+# 微信接口回调地址
+Route::get('/auth/callback', 'Auth\AuthController@callback');
