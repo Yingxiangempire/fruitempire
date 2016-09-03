@@ -68,7 +68,7 @@ class AuthController extends Controller
 
     public function oauth(Request $request)
     {
-        return Socialite::with('weixin')->redirect();
+        return Socialite::driver('weixin')->redirect();
     }
 
 # 微信的回调地址
@@ -78,7 +78,7 @@ class AuthController extends Controller
 
         //View::addExtension('html','blade');
         // return  view('index');
-        $oauthUser = Socialite::with('weixin')->user();
+        $oauthUser = Socialite::driver('weixin')->user();
 //dump($oauthUser);
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
