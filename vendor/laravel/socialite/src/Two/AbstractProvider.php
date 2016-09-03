@@ -375,7 +375,7 @@ abstract class AbstractProvider implements ProviderContract
      */
     protected function isStateless()
     {
-        return $this->stateless;
+        return $this->stateless();
     }
 
     /**
