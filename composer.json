@@ -9,7 +9,9 @@
         "laravel/framework": "5.1.*",
         "barryvdh/laravel-ide-helper": "2.*",
         "watson/rememberable": "^1.0",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "socialiteproviders/weixin": "^2.1",
+        "endroid/qrcode": "^1.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
