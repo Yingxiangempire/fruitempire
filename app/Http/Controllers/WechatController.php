@@ -18,9 +18,13 @@ class WechatController extends Controller
 
         $wechat = app('wechat');
 
-        $wechat->server->setMessageHandler(function($message){
+
+        $wechat->server->setMessageHandler(function($message) use ($wechat){
+            $userService = $wechat->user;
+
             $openid=$message->FromUserName;
-            return "wangyuxiang 欢迎你".$openid;
+            $user = $userService->get($openid);
+            return "wangyuxiang 欢迎你".$openid.$user->nickname;
         });
 
 
