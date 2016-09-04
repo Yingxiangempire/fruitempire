@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">添加会展请求</div>
+                <div class="title">微信授权登录测试</div>
 
                 <form name="loginForm" action="/auth/oauth" role="form" method="get">
                     <input name="__RequestVerificationToken" type="hidden" value="rt5Airmw3jY8JxfwdGzn-X6N_d_ytWSSxziBSHzOUPAh9bxIAg2mbsMJQkkjfxXmQpfsP1Uq_ZipFo2e16JVN6WU8ltGOL3wJd39W3CH4-I1" />
