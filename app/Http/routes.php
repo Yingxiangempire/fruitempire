@@ -19,6 +19,6 @@ Route::get('/', function () {
 Route::controller('/test', 'TestController');
 Route::get('/auth/oauth', 'Auth\AuthController@oauth');
 # 微信接口回调地址
-Route::get('/callback', 'Auth\AuthController@callback');
+Route::get('/auth/callback', 'Auth\AuthController@callback');
 Route::controller('/auth', 'AuthController');
 Route::any('/wechat', 'WechatController@serve');
