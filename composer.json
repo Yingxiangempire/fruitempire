@@ -13,7 +13,8 @@
         "socialiteproviders/weixin": "^2.1",
         "endroid/qrcode": "^1.7",
         "weann/socialite": "^1.0",
-        "overtrue/laravel-wechat": "~3.0"
+        "overtrue/laravel-wechat": "~3.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

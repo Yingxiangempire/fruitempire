@@ -24,7 +24,7 @@ class WechatController extends Controller
 
             $openid=$message->FromUserName;
             $user = $userService->get($openid);
-            return "wangyuxiang 欢迎你".$openid.$user->nickname;
+            return "wangyuxiang 欢迎你".$openid."你的微信号是:".$user->nickname;
         });
 
 

@@ -140,6 +140,7 @@ return [
        \SocialiteProviders\Manager\ServiceProvider::class,
       // Weann\Socialite\SocialiteServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,6 +200,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
        // 'Socialite' => Weann\Socialite\Facades\Socialite::class,
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
+
     ],
 
 ];
