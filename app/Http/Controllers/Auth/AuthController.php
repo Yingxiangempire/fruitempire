@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Request;
-use Laravel\Socialite\Facades\Socialite;
+//use Laravel\Socialite\Facades\Socialite;
+use Weann\Socialite\Facades\Socialite;
 use View;
 
 class AuthController extends Controller
@@ -68,7 +69,7 @@ class AuthController extends Controller
 
     public function oauth(Request $request)
     {
-        return Socialite::driver('weixin')->redirect();
+        return Socialite::driver('wechat')->redirect();
     }
 
 # 微信的回调地址
@@ -78,7 +79,7 @@ class AuthController extends Controller
 
         //View::addExtension('html','blade');
         // return  view('index');
-        $oauthUser = Socialite::driver('weixin')->user();
+        $oauthUser = Socialite::driver('wechat')->user();
 //dump($oauthUser);
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
