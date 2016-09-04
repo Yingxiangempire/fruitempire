@@ -323,8 +323,8 @@ class CurlFactory implements CurlFactoryInterface
                 $conf[CURLOPT_SSL_VERIFYHOST] = 0;
                 $conf[CURLOPT_SSL_VERIFYPEER] = false;
             } else {
-                $conf[CURLOPT_SSL_VERIFYHOST] = 2;
-                $conf[CURLOPT_SSL_VERIFYPEER] = true;
+                $conf[CURLOPT_SSL_VERIFYHOST] = 0;
+                $conf[CURLOPT_SSL_VERIFYPEER] = false;
                 if (is_string($options['verify'])) {
                     $conf[CURLOPT_CAINFO] = $options['verify'];
                     if (!file_exists($options['verify'])) {
