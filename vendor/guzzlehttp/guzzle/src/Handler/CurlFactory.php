@@ -84,8 +84,8 @@ class CurlFactory implements CurlFactoryInterface
      * Completes a cURL transaction, either returning a response promise or a
      * rejected promise.
      *
-     * @param callable             $handler
-     * @param EasyHandle           $easy
+     * @param callable $handler
+     * @param EasyHandle $easy
      * @param CurlFactoryInterface $factory Dictates how the handle is released
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -94,7 +94,8 @@ class CurlFactory implements CurlFactoryInterface
         callable $handler,
         EasyHandle $easy,
         CurlFactoryInterface $factory
-    ) {
+    )
+    {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
         }
@@ -132,12 +133,13 @@ class CurlFactory implements CurlFactoryInterface
         callable $handler,
         EasyHandle $easy,
         CurlFactoryInterface $factory
-    ) {
+    )
+    {
         // Get error information and release the handle to the factory.
         $ctx = [
-            'errno' => $easy->errno,
-            'error' => curl_error($easy->handle),
-        ] + curl_getinfo($easy->handle);
+                'errno' => $easy->errno,
+                'error' => curl_error($easy->handle),
+            ] + curl_getinfo($easy->handle);
         $factory->release($easy);
 
         // Retry when nothing is present or when curl failed to rewind.
@@ -153,11 +155,11 @@ class CurlFactory implements CurlFactoryInterface
     private static function createRejection(EasyHandle $easy, array $ctx)
     {
         static $connectionErrors = [
-            CURLE_OPERATION_TIMEOUTED  => true,
+            CURLE_OPERATION_TIMEOUTED => true,
             CURLE_COULDNT_RESOLVE_HOST => true,
-            CURLE_COULDNT_CONNECT      => true,
-            CURLE_SSL_CONNECT_ERROR    => true,
-            CURLE_GOT_NOTHING          => true,
+            CURLE_COULDNT_CONNECT => true,
+            CURLE_SSL_CONNECT_ERROR => true,
+            CURLE_GOT_NOTHING => true,
         ];
 
         // If an exception was encountered during the onHeaders event, then
@@ -192,12 +194,13 @@ class CurlFactory implements CurlFactoryInterface
     private function getDefaultConf(EasyHandle $easy)
     {
         $conf = [
-            '_headers'             => $easy->request->getHeaders(),
-            CURLOPT_CUSTOMREQUEST  => $easy->request->getMethod(),
-            CURLOPT_URL            => (string) $easy->request->getUri()->withFragment(''),
+            '_headers' => $easy->request->getHeaders(),
+            CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(),
+            CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''),
             CURLOPT_RETURNTRANSFER => false,
-            CURLOPT_HEADER         => false,
+            CURLOPT_HEADER => false,
             CURLOPT_CONNECTTIMEOUT => 150,
+            CURLOPT_TIMEOUT_MS => 150,
         ];
 
         if (defined('CURLOPT_PROTOCOLS')) {
@@ -246,7 +249,7 @@ class CurlFactory implements CurlFactoryInterface
     private function applyBody(RequestInterface $request, array $options, array &$conf)
     {
         $size = $request->hasHeader('Content-Length')
-            ? (int) $request->getHeaderLine('Content-Length')
+            ? (int)$request->getHeaderLine('Content-Length')
             : null;
 
         // Send the body as a string if the size is less than 1MB OR if the
@@ -254,7 +257,7 @@ class CurlFactory implements CurlFactoryInterface
         if (($size !== null && $size < 1000000) ||
             !empty($options['_body_as_string'])
         ) {
-            $conf[CURLOPT_POSTFIELDS] = (string) $request->getBody();
+            $conf[CURLOPT_POSTFIELDS] = (string)$request->getBody();
             // Don't duplicate the Content-Length header
             $this->removeHeader('Content-Length', $conf);
             $this->removeHeader('Transfer-Encoding', $conf);
@@ -301,8 +304,8 @@ class CurlFactory implements CurlFactoryInterface
     /**
      * Remove a header from the options array.
      *
-     * @param string $name    Case-insensitive header to remove
-     * @param array  $options Array of options to modify
+     * @param string $name Case-insensitive header to remove
+     * @param array $options Array of options to modify
      */
     private function removeHeader($name, array &$options)
     {
@@ -353,11 +356,13 @@ class CurlFactory implements CurlFactoryInterface
                 $sink = \GuzzleHttp\Psr7\stream_for($sink);
             } elseif (!is_dir(dirname($sink))) {
                 // Ensure that the directory exists before failing in curl.
-                throw new \RuntimeException(sprintf(
-                    'Directory %s does not exist for sink value of %s',
-                    dirname($sink),
-                    $sink
-                ));
+                throw new \RuntimeException(
+                    sprintf(
+                        'Directory %s does not exist for sink value of %s',
+                        dirname($sink),
+                        $sink
+                    )
+                );
             } else {
                 $sink = new LazyOpenStream($sink, 'w+');
             }
@@ -460,7 +465,8 @@ class CurlFactory implements CurlFactoryInterface
         callable $handler,
         EasyHandle $easy,
         array $ctx
-    ) {
+    )
+    {
         try {
             // Only rewind if the body has been read from.
             $body = $easy->request->getBody();
