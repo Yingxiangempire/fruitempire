@@ -81,6 +81,8 @@ class AuthController extends Controller
         // return  view('index');
         $oauthUser = Socialite::driver('weixin')->user();
 //dump($oauthUser);
+
+        dump($oauthUser);
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
         //$auth->login($oauthUser);
