@@ -9,10 +9,10 @@
 namespace App\Http\Controllers;
 
 
-class AuthController extends Controller
+class TestController extends Controller
 {
-    public function getToken()
+    public function getPhp()
     {
-        return \Request::input("echostr");
+        echo phpinfo();
     }
 }
