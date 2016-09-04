@@ -137,8 +137,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-      //  \SocialiteProviders\Manager\ServiceProvider::class,
-       Weann\Socialite\SocialiteServiceProvider::class,
+       \SocialiteProviders\Manager\ServiceProvider::class,
+      // Weann\Socialite\SocialiteServiceProvider::class,
         Overtrue\LaravelWechat\ServiceProvider::class,
 
         /*
@@ -196,8 +196,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-       // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Socialite' => Weann\Socialite\Facades\Socialite::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+       // 'Socialite' => Weann\Socialite\Facades\Socialite::class,
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
     ],
 
