@@ -82,14 +82,14 @@ class AuthController extends Controller
 
         //View::addExtension('html','blade');
         // return  view('index');
-        $oauthUser = Socialite::driver('weixin')->user();
-        dump($oauthUser);
+       // $oauthUser = Socialite::driver('weixin')->user();
+       // dump($oauthUser);
         //$openId=Input::get('user_id');
        // dump($openId);
 
-       // $wechat = app('wechat');
-       // $message = new Text(['content' => 'Hello world!']);
-       // $result = $wechat->staff->message($message)->to($openId)->send();
+        $wechat = app('wechat');
+        $message = new Text(['content' => 'Hello world!']);
+        $result = $wechat->staff->message($message)->to('oCgI4wgeIisl4P8k6GObliTjSwoM')->send();
 //...
 
 
