@@ -11,6 +11,7 @@ use Request;
 use Laravel\Socialite\Facades\Socialite;
 //use Weann\Socialite\Facades\Socialite;
 use View;
+use Input;
 
 class AuthController extends Controller
 {
@@ -81,7 +82,7 @@ class AuthController extends Controller
         // return  view('index');
         $oauthUser = Socialite::driver('weixin')->user();
 //dump($oauthUser);
-        $unid=$request->get('user_id');
+        $unid=Input::all();
         dump($unid);
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
