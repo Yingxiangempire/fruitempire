@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Request;
 use Laravel\Socialite\Facades\Socialite;
 //use Weann\Socialite\Facades\Socialite;
+use EasyWeChat\Message\Text;
+
 use View;
 use Input;
 
@@ -81,14 +83,22 @@ class AuthController extends Controller
         //View::addExtension('html','blade');
         // return  view('index');
         $oauthUser = Socialite::driver('weixin')->user();
-//dump($oauthUser);
-        $unid=Input::all();
-        dump($unid);
+        dump($oauthUser);
+        //$openId=Input::get('user_id');
+       // dump($openId);
+
+       // $wechat = app('wechat');
+       // $message = new Text(['content' => 'Hello world!']);
+       // $result = $wechat->staff->message($message)->to($openId)->send();
+//...
+
+
+
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
         //$auth->login($oauthUser);
-        View::addExtension('html','blade');
-        return  view('welcome');
+       // View::addExtension('html','blade');
+       // return  view('welcome');
         // 接下来处理相关的业务逻辑
 
     }
