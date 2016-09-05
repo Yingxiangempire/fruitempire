@@ -17,7 +17,7 @@ class WechatController extends Controller
 {
 
     const QR_PREFIX="qr_";
-    const WEIXIN_URL_PART1="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1e8f4b777c70344b&redirect_uri=http%3A%2F%2Fwww.yingxiangempire.com%2Fauth%2Fcallback%3Fdriver%3D23";
+    const WEIXIN_URL_PART1="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx1e8f4b777c70344b&redirect_uri=http%3A%2F%2Fwww.yingxiangempire.com%2Fauth%2Fcallback%3Fdriver%3D";
     const WEIXIN_URL_PART2="&response_type=code&scope=snsapi_userinfo&state=FekCuCqFwYos7ro39nQWSngtVhOPhxQbe56ariOS&connect_redirect=1#wechat_redirect";
     public $wechat;
     public $base_path;

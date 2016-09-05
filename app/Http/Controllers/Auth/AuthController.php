@@ -92,8 +92,8 @@ class AuthController extends Controller
         $user_id=Request::all();
 
         $message = new Text(['content' => 'Hello world!']);
-        $result = $wechat->staff->message($message)->to('23oCgI4wkgHY1YaKYj2tWHRgF9FZE')->send();
-        dump($user_id['driver']);
+        $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
+      //  dump($user_id['driver']);
        // $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
 //...
 
@@ -103,7 +103,7 @@ class AuthController extends Controller
         //$auth=new \App\Http\Controllers\AuthController();
         //$auth->login($oauthUser);
        // View::addExtension('html','blade');
-       // return  view('welcome');
+        return  view('welcome');
         // 接下来处理相关的业务逻辑
 
     }
