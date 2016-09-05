@@ -50,13 +50,11 @@ class WechatController extends Controller
     public function getQr($user_id)
     {
         $text=self::WEIXIN_URL_PART1.$user_id.self::WEIXIN_URL_PART2;
-        $type = inputGet('type', 'png');
-        $size = inputGet('size', 100);
         $qrCode = new QrCode();
         $qrCode
             ->setText($text)
-            ->setExtension($type)
-            ->setSize($size)
+            ->setExtension('jpg')
+            ->setSize(100)
             ->setPadding(10)
             ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
             ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
