@@ -88,7 +88,7 @@ class AuthController extends Controller
        // dump($openId);
 
         $wechat = app('wechat');
-        $message = new Text(['content' => '你有下级代理商了,牛逼啊!']);
+        $message = new Text(['content' => 'hello']);
         $user_id=Request::all();
 
         $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
