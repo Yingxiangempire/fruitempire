@@ -93,6 +93,7 @@ class AuthController extends Controller
 
         $message = new Text(['content' => 'Hello world!']);
         $result = $wechat->staff->message($message)->to('oCgI4wgeIisl4P8k6GObliTjSwoM')->send();
+        dump($user_id['driver']);
        // $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
 //...
 
