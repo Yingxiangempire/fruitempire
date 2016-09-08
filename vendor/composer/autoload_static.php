@@ -21,6 +21,7 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
         '9e090711773bfc38738f5dbaee5a7f14' => __DIR__ . '/..' . '/overtrue/wechat/src/Payment/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'c7a30ad2fd3d198cdc58d9fb1f8a7ed4' => __DIR__ . '/../..' . '/app/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -409,6 +410,7 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
     );
 
     public static $classMap = array (
+        'AdminUser' => __DIR__ . '/../..' . '/database/migrations/2016_09_08_090216_admin_user.php',
         'App\\Console\\Commands\\Inspire' => __DIR__ . '/../..' . '/app/Console/Commands/Inspire.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Events\\Event' => __DIR__ . '/../..' . '/app/Events/Event.php',
@@ -1032,6 +1034,7 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
+        'FeUser' => __DIR__ . '/../..' . '/database/migrations/2016_09_08_093614_fe_user.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
