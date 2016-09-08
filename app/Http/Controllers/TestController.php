@@ -54,4 +54,11 @@ class TestController extends Controller
 
     }
 
+    
+    public function getW()
+    {
+        $s=inputGetOrFail('input');
+        return $s;
+    }
+
 }
