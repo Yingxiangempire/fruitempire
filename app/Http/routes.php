@@ -10,10 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
 Route::get('/', function () {
+   // return view('login');
+});
+Route::get('/admin', function () {
+    View::addExtension('html','blade');
     return view('login');
 });
-
 
 
 Route::controller('/test', 'TestController');
@@ -21,4 +26,13 @@ Route::get('/auth/oauth', 'Auth\AuthController@oauth');
 # 微信接口回调地址
 Route::get('/auth/callback', 'Auth\AuthController@callback');
 Route::controller('/auth', 'AuthController');
+#微信调用接口默认不能随意修改
 Route::any('/wechat', 'WechatController@serve');
+
+
+
+
+
+/*************************管理后台路由***********************/
+Route::controller('/admin_auth', 'Admin\AuthController');
+/*************************管理后台路由***********************/

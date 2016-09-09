@@ -13,5 +13,10 @@ class Admin extends BaseModel
 {
     public $table = "fe_administer";
     public $timestamps = true;
+    const PASSWORD="18fruit";
 
+    public static function getNamePassword($name,$password)
+    {
+        return self::where('name',$name)->where('password',$password)->first();
+    }
 }

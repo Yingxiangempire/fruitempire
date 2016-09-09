@@ -6,38 +6,29 @@
  * Time: 下午4:34
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 
-use App\Logic\LAccount;
-use App\Models\EntConfig;
+use App\Models\Admin;
 use Session;
-use Auth;
-use URL;
 use View;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
 
     public function getLogin($oauthUser='')
     {
-        $name="会展adminer";
-        $unionid="12345";
-        //$name=inputGetOrFail('name');
-        //$unionid=inputGetOrFail('unionid');
-        //$name=$oauthUser['nickname'];
-        //$unionid=$oauthUser['unionid'];
-        //$image=$oauthUser['headimgurl'];
-        $member=LAccount::setUser($name,$unionid)->toArray();
-        $ent=EntConfig::_findOrFail($member['ent_id'])->toArray();
-        $member['edition']=$ent['edition'];
-        $his_member = Session::get('member');
-        if (!$his_member) {
+        $name=inputGetOrFail('name');
+        $password=getPassword(inputGetOrFail('password'));
+        $administer=Admin::getNamePassword($name,$password);
+        $his_administer = Session::get('member');
+        if (!$his_administer) {
             Session::flush();
-            Session::put('member', $member);
+            Session::put('member', $administer);
             Session::regenerate();
         }
-        return $member;
+        return $administer;
     }
 
     public function getLogout()

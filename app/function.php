@@ -335,3 +335,8 @@ function getUniqueCode()
 {
     return date('His') . rand(1111,9999);
 }
+
+function getPassword($password)
+{
+   return  base64_encode(hash_hmac('sha1', $password, \App\Models\Admin::PASSWORD, true));
+}
