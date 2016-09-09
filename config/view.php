@@ -14,7 +14,7 @@ return [
     */
 
     'paths' => [
-        realpath(base_path('resources/views/dist')),
+        realpath(base_path('resources/views/'.env('VIEW_PATH'))),
     ],
 
     /*
