@@ -1,5 +1,5 @@
 node_modules
-dist
+app
 test/temp
 .sass-cache
 app/bower_components
