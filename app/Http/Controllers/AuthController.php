@@ -15,4 +15,7 @@ class AuthController extends Controller
     {
         return \Request::input("echostr");
     }
+
+
+
 }

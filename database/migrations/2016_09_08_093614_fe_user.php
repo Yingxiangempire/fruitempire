@@ -1,7 +1,6 @@
 <?php class FeUser extends CreateBase
 {
     protected $table = "fe_user";
-    protected $connection = "yunku_boss";
 
     public function create(&$table)
     {

@@ -1,7 +1,7 @@
 <?php class AdminUser extends CreateBase
 {
+
     protected $table = "fe_administer";
-    protected $connection = "yunku_boss";
 
     public function create(&$table)
     {
