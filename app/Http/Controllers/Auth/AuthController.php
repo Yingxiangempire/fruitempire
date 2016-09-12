@@ -82,17 +82,17 @@ class AuthController extends Controller
 
         //View::addExtension('html','blade');
         // return  view('index');
-        $oauthUser = Socialite::driver('weixin')->user();
-        dump($oauthUser);
+       // $oauthUser = Socialite::driver('weixin')->user();
+       // dump($oauthUser);
         //$openId=Input::get('user_id');
        // dump($openId);
 
-      //  $wechat = app('wechat');
+       $wechat = app('wechat');
        // $message = new Text(['content' => 'jijijijijijij']);
-       // $user_id=Request::all();
+        $user_id=Request::all();
 
-       // $message = new Text(['content' => '你有下级代理商了!']);
-      //  $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
+        $message = new Text(['content' => '你有下级代理商了!']);
+        $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
       //  dump($user_id['driver']);
        // $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
 //...
@@ -102,8 +102,8 @@ class AuthController extends Controller
         // 在这里可以获取到用户在微信的资料
         //$auth=new \App\Http\Controllers\AuthController();
         //$auth->login($oauthUser);
-       // View::addExtension('html','blade');
-       // return  view('welcome');
+        View::addExtension('html','blade');
+        return  view('welcome');
         // 接下来处理相关的业务逻辑
 
     }
