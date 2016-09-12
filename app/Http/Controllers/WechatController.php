@@ -12,6 +12,7 @@ use Log;
 use Endroid\QrCode\QrCode;
 use Intervention\Image\Facades\Image;
 use EasyWeChat\Message\Image as Im;
+use EasyWeChat\Message\Text;
 
 class WechatController extends Controller
 {
@@ -33,12 +34,14 @@ class WechatController extends Controller
         $userService = $this->wechat->user;
         $this->wechat->server->setMessageHandler(
             function ($message) use ($userService) {
-                $openid = $message->FromUserName;
+
+                $text = new Text(['content' => '您好！overtrue。']);
+               /* $openid = $message->FromUserName;
                 $user = $userService->get($openid);
                 $qr=new \LQr();
                 $mediaId=$qr->uplaodQr($openid,$user->nickname);
                 $text = new Im(['media_id' => $mediaId['media_id']]);
-               // return "wangyuxiang 欢迎你" . $openid . "你的微信号是:" . $user->nickname;
+               // return "wangyuxiang 欢迎你" . $openid . "你的微信号是:" . $user->nickname;*/
                 return $text;
             }
         );
