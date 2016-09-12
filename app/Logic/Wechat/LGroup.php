@@ -8,11 +8,24 @@
  */
 class LGroup
 {
-    public $weixin;
-    
+    public $wechat;
+    public $group;
+
     public function __construct()
     {
-        
+        $this->wechat = app('wechat');
+        $this->group = $this->wechat->user_group;
     }
+
+    public function setGroup($name)
+    {
+        return $this->group->create($name);
+    }
+
+    public function setGroupUser($group_id, $openId)
+    {
+       return $this->group->moveUser($openId, $group_id);
+    }
+
 
 }

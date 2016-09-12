@@ -12,8 +12,9 @@
 */
 
 
-Route::get('/', function () {
-   // return view('login');
+Route::get('/index', function () {
+    View::addExtension('html','blade');
+    return view('index');
 });
 Route::get('/admin', function () {
     View::addExtension('html','blade');

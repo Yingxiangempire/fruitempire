@@ -52,5 +52,4 @@ class LAccount
         $administer->save();
     }
 
-
 }

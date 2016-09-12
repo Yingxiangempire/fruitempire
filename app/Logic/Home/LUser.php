@@ -11,17 +11,14 @@ use App\Models\FtUser;
 
 class LUser
 {
-    const INIT_PASSWORD = "18fruit";
-    const INIT_STATE = 1;
-
-    public static function setUser($nick_name, $unionID, $avatar, $pid = 0, $mobile = '', $state = self::INIT_STATE)
+    public static function setUser($nick_name, $unionID, $avatar, $pid = 0, $mobile = '', $state = FtUser::INIT_STATE)
     {
         $user = new FtUser();
         $user->email = $nick_name;
         $user->name = $unionID;
         $user->avatar = $avatar;
         $user->account = $pid;
-        $user->password = getPassword(md5(self::INIT_PASSWORD));
+        $user->password = getPassword(md5(FtUser::INIT_PASSWORD));
         $user->mobile = $mobile;
         $user->state = $state;
         $user->save();
@@ -51,7 +48,7 @@ class LUser
         if ($state) {
             $user->state = $state;
         }
-        $administer->save();
+        $user->save();
     }
 
 

@@ -62,7 +62,7 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
             'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
             'SuperClosure\\' => 13,
             'Stringy\\' => 8,
-            'SocialiteProviders\\Weixin\\' => 26,
+            'SocialiteProviders\\Wechat\\' => 26,
             'SocialiteProviders\\Manager\\Test\\' => 32,
             'SocialiteProviders\\Manager\\' => 27,
         ),
@@ -234,7 +234,7 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
         array (
             0 => __DIR__ . '/..' . '/danielstjules/stringy/src',
         ),
-        'SocialiteProviders\\Weixin\\' => 
+        'SocialiteProviders\\Wechat\\' => 
         array (
             0 => __DIR__ . '/..' . '/socialiteproviders/weixin/src',
         ),
@@ -3166,8 +3166,8 @@ class ComposerStaticInitf31f3e44d9dc90a1bf4e2b425e9be229
         'SocialiteProviders\\Manager\\OAuth2\\User' => __DIR__ . '/..' . '/socialiteproviders/manager/src/OAuth2/User.php',
         'SocialiteProviders\\Manager\\ServiceProvider' => __DIR__ . '/..' . '/socialiteproviders/manager/src/ServiceProvider.php',
         'SocialiteProviders\\Manager\\SocialiteWasCalled' => __DIR__ . '/..' . '/socialiteproviders/manager/src/SocialiteWasCalled.php',
-        'SocialiteProviders\\Weixin\\Provider' => __DIR__ . '/..' . '/socialiteproviders/weixin/src/Provider.php',
-        'SocialiteProviders\\Weixin\\WeixinExtendSocialite' => __DIR__ . '/..' . '/socialiteproviders/weixin/src/WeixinExtendSocialite.php',
+        'SocialiteProviders\\Wechat\\Provider' => __DIR__ . '/..' . '/socialiteproviders/weixin/src/Provider.php',
+        'SocialiteProviders\\Wechat\\WeixinExtendSocialite' => __DIR__ . '/..' . '/socialiteproviders/weixin/src/WeixinExtendSocialite.php',
         'Stringy\\StaticStringy' => __DIR__ . '/..' . '/danielstjules/stringy/src/StaticStringy.php',
         'Stringy\\Stringy' => __DIR__ . '/..' . '/danielstjules/stringy/src/Stringy.php',
         'SuperClosure\\Analyzer\\AstAnalyzer' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/AstAnalyzer.php',
