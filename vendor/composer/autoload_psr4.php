@@ -32,7 +32,7 @@ return array(
     'Symfony\\Bridge\\PsrHttpMessage\\' => array($vendorDir . '/symfony/psr-http-message-bridge'),
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
     'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src'),
-    'SocialiteProviders\\Wechat\\' => array($vendorDir . '/socialiteproviders/weixin/src'),
+    'SocialiteProviders\\Weixin\\' => array($vendorDir . '/socialiteproviders/weixin/src'),
     'SocialiteProviders\\Manager\\Test\\' => array($vendorDir . '/socialiteproviders/manager/tests'),
     'SocialiteProviders\\Manager\\' => array($vendorDir . '/socialiteproviders/manager/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),
