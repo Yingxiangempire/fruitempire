@@ -87,7 +87,7 @@ class AuthController extends Controller
         /********************获取授权用户的信息后创建本地用户*************************/
         $oauthUser = Soc::driver('weixin')->user();
         Log::info(2);
-        $user=json_decode($oauthUser,true);
+        $user=(array)$oauthUser;
         $re_id=$p_user?$p_user['id']:0;
         Log::info(3);
         \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
