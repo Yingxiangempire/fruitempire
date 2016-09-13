@@ -372,7 +372,7 @@ class CurlFactory implements CurlFactoryInterface
         }
 
         if (!isset($options['timeout'])) {
-            $conf[CURLOPT_TIMEOUT_MS] = $options['timeout'] * 1000;
+           // $conf[CURLOPT_TIMEOUT_MS] = $options['timeout'] * 1000;
         }
 
         if (isset($options['connect_timeout'])) {
