@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\FtUser;
 use App\User;
+use EasyWeChat\Support\Log;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -82,13 +83,16 @@ class AuthController extends Controller
         $user_id=Request::all();
         $pid=$user_id['driver'];
         $p_user=FtUser::getId($pid)?FtUser::getId($pid)->toArray():'';
+        Log::info(1);
         /********************获取授权用户的信息后创建本地用户*************************/
         $oauthUser = Soc::driver('weixin')->user();
+        Log::info(2);
         $user=json_decode($oauthUser,true);
         $re_id=$p_user?$p_user['id']:0;
+        Log::info(3);
         \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
         /******************给分享者发送提醒*********************/
-
+        Log::info(4);
         $wechat = app('wechat');
         $message = new Text(['content' => '成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
         $result = $wechat->staff->message($message)->to($pid)->send();
