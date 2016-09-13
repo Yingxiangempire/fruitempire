@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Request;
-use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Facades\Socialite as Soc;
 //use Weann\Socialite\Facades\Socialite;
 use EasyWeChat\Message\Text;
 
@@ -83,7 +83,7 @@ class AuthController extends Controller
         $pid=$user_id['driver'];
         $p_user=FtUser::getId($pid)?FtUser::getId($pid)->toArray():'';
         /********************获取授权用户的信息后创建本地用户*************************/
-        $oauthUser = Socialite::driver('weixin')->user();
+        $oauthUser = Soc::driver('weixin')->user();
         $user=json_decode($oauthUser,true);
         $re_id=$p_user?$p_user['id']:0;
         \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
