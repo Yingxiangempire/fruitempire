@@ -14,10 +14,10 @@ class LUser
     public static function setUser($nick_name, $unionID, $avatar, $pid = 0, $mobile = '', $state = FtUser::INIT_STATE)
     {
         $user = new FtUser();
-        $user->email = $nick_name;
-        $user->name = $unionID;
+        $user->nick_name = $nick_name;
+        $user->unionID = $unionID;
         $user->avatar = $avatar;
-        $user->account = $pid;
+        $user->pID = $pid;
         $user->password = getPassword(md5(FtUser::INIT_PASSWORD));
         $user->mobile = $mobile;
         $user->state = $state;
