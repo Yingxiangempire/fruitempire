@@ -6,7 +6,7 @@
  * Date: 16/9/9
  * Time: 下午3:22
  */
-
+namespace App\Logic\Home;
 use App\Models\FtUser;
 
 class LUser
