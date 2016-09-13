@@ -81,15 +81,16 @@ class AuthController extends Controller
         /*************************从本地获取分享者的信息*****************************/
         $user_id=Request::all();
         $pid=$user_id['driver'];
-        $p_user=FtUser::getId($pid)->toArray();
+        $p_user=FtUser::getId($pid)?FtUser::getId($pid)->toArray():'';
         /********************获取授权用户的信息后创建本地用户*************************/
         $oauthUser = Socialite::driver('weixin')->user();
         $user=json_decode($oauthUser,true);
-        \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $p_user['id']);
+        $re_id=$p_user?$p_user['id']:0;
+        \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
         /******************给分享者发送提醒*********************/
 
         $wechat = app('wechat');
-        $message = new Text(['content' => $p_user['nick_name'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
+        $message = new Text(['content' => '成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
         $result = $wechat->staff->message($message)->to($pid)->send();
         View::addExtension('html','blade');
         return  view('welcome');
