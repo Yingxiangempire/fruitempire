@@ -13,7 +13,7 @@ use Request;
 use Laravel\Socialite\Facades\Socialite as Soc;
 //use Weann\Socialite\Facades\Socialite;
 use EasyWeChat\Message\Text;
-use LUser;
+use App\Logic\Home\LUser;
 
 use View;
 
