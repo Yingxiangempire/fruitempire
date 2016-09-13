@@ -14,7 +14,7 @@ class LAccount
     const INIT_PASSWORD = "18fruit";
     const INIT_STATE = 1;
 
-    public static function setAdmin($name, $email, $qq = '', $weixin = '', $avatar = '')
+    public static function setAdmin($name, $email='', $qq = '', $weixin = '', $avatar = '')
     {
         $administer = new Admin();
         $administer->email = $email;

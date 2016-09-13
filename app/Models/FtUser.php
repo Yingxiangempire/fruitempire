@@ -23,5 +23,10 @@ class FtUser extends User
     {
         return self::where('state',$state)->get();
     }
+    
+    public static function getId($unionID)
+    {
+        return self::where('unionID',$unionID)->first();
+    }
 
 }

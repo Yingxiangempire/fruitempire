@@ -49,6 +49,18 @@ class WechatController extends Controller
         return $this->wechat->server->serve();
     }
 
+    
+    //请求二维码
+    public static function getQr()
+    {
+        
+    }
+    
+    
+    
+    
+    
+    
 
    
 

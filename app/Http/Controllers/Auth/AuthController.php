@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\FtUser;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -13,7 +14,6 @@ use Laravel\Socialite\Facades\Socialite;
 use EasyWeChat\Message\Text;
 
 use View;
-use Input;
 
 class AuthController extends Controller
 {
@@ -78,33 +78,20 @@ class AuthController extends Controller
 # 微信的回调地址
     public function callback(Request $request)
     {
-
-
-        //View::addExtension('html','blade');
-        // return  view('index');
-       // $oauthUser = Socialite::driver('weixin')->user();
-       // dump($oauthUser);
-        //$openId=Input::get('user_id');
-       // dump($openId);
-
-       $wechat = app('wechat');
-       // $message = new Text(['content' => 'jijijijijijij']);
+        /*************************从本地获取分享者的信息*****************************/
         $user_id=Request::all();
+        $pid=$user_id['driver'];
+        $p_user=FtUser::getId($pid)->toArray();
+        /********************获取授权用户的信息后创建本地用户*************************/
+        $oauthUser = Socialite::driver('weixin')->user();
+        $user=json_decode($oauthUser,true);
+        \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $p_user['id']);
+        /******************给分享者发送提醒*********************/
 
-        $message = new Text(['content' => '你有下级代理了!']);
-        $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
-      //  dump($user_id['driver']);
-       // $result = $wechat->staff->message($message)->to($user_id['driver'])->send();
-//...
-
-
-
-        // 在这里可以获取到用户在微信的资料
-        //$auth=new \App\Http\Controllers\AuthController();
-        //$auth->login($oauthUser);
+        $wechat = app('wechat');
+        $message = new Text(['content' => $p_user['nick_name'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
+        $result = $wechat->staff->message($message)->to($pid)->send();
         View::addExtension('html','blade');
         return  view('welcome');
-        // 接下来处理相关的业务逻辑
-
     }
 }

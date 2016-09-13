@@ -21,11 +21,11 @@ class AuthController extends Controller
     {
         $name=inputGetOrFail('name');
         $password=getPassword(inputGetOrFail('password'));
-        $administer=Admin::getNamePassword($name,$password);
-        $his_administer = Session::get('member');
-        if (!$his_administer) {
+        $administer=Admin::getNamePassword($name,$password)->toArray();
+        $his_administer = Session::get('administer');
+        if (!$his_administer ||$his_administer['id'] !=$administer['id'] ) {
             Session::flush();
-            Session::put('member', $administer);
+            Session::put('administer', $administer);
             Session::regenerate();
         }
         return $administer;
