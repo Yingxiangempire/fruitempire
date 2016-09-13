@@ -89,6 +89,7 @@ class AuthController extends Controller
         $oauthUser = Soc::driver('weixin')->user();
         Log::info(2);
         $user=(array)$oauthUser;
+        dump($user);
         $re_id=$p_user?$p_user['id']:0;
         Log::info(3);
         LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
