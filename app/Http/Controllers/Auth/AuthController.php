@@ -13,6 +13,7 @@ use Request;
 use Laravel\Socialite\Facades\Socialite as Soc;
 //use Weann\Socialite\Facades\Socialite;
 use EasyWeChat\Message\Text;
+use LUser;
 
 use View;
 
@@ -90,7 +91,7 @@ class AuthController extends Controller
         $user=(array)$oauthUser;
         $re_id=$p_user?$p_user['id']:0;
         Log::info(3);
-        \LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
+        LUser::setUser($user['nick_name'], $user['id'], $user['avatar'], $re_id);
         /******************给分享者发送提醒*********************/
         Log::info(4);
         $wechat = app('wechat');
