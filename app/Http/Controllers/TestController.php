@@ -106,6 +106,26 @@ class TestController extends Controller
 
     }
 
+    public function getAddSelfMenu()
+    {
+        $wechat = app('wechat');
+        $menu = $wechat->menu;
+
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "二级代理",
+                "key" => "V1001_TODAY_MUSIC"
+            ]
+        ];
+        $matchRule = [
+            "group_id"             => "101",
+        ];
+        $menu->add($buttons, $matchRule);
+
+
+    }
+
 
     public function getDelMenu()
     {
