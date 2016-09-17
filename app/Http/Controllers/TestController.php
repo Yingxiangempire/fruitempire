@@ -111,8 +111,9 @@ class TestController extends Controller
     {
         $wechat = app('wechat');
         $menu = $wechat->menu;
-        return $menu->destroy(inputGet('id',''));
+        return $menu->destroy();
     }
+
 
 
 }
