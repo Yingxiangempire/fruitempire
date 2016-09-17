@@ -114,6 +114,11 @@ class TestController extends Controller
         return $menu->destroy();
     }
 
-
+    public function getGroup()
+    {
+        $wechat = app('wechat');
+        $group = $wechat->user_group;
+        return $group->lists();
+    }
 
 }
