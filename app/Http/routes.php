@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/index', function () {
+Route::get('/', function () {
     View::addExtension('html','blade');
     return view('index');
 });
@@ -36,4 +36,5 @@ Route::any('/wechat', 'WechatController@serve');
 
 /*************************管理后台路由***********************/
 Route::controller('/admin_auth', 'Admin\AuthController');
+Route::controller('/aaccount', 'Admin\AccountController');
 /*************************管理后台路由***********************/

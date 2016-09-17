@@ -26,18 +26,18 @@ class LUser
 
     public static function updateUser($id, $nick_name = '', $unionID = '', $avatar = '', $pid = 0, $password = '', $mobile = '', $state = '')
     {
-        $user = FtUser::_findOrFail($id);
+        $user = FtUser::find($id);
         if ($nick_name) {
-            $user->email = $nick_name;
+            $user->nick_name = $nick_name;
         }
         if ($unionID) {
-            $user->name = $unionID;
+            $user->$unionID = $unionID;
         }
         if ($avatar) {
             $user->avatar = $avatar;
         }
         if ($pid) {
-            $user->account = $pid;
+            $user->pID = $pid;
         }
         if ($password) {
             $user->password = $password;
@@ -45,10 +45,11 @@ class LUser
         if ($mobile) {
             $user->mobile = $mobile;
         }
-        if ($state) {
+        if ($state!='') {
             $user->state = $state;
         }
         $user->save();
+        return $user;
     }
 
 

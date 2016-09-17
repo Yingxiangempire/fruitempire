@@ -5,10 +5,10 @@
     public function create(&$table)
     {
         $table->increments('id');
-        $table->string("nick_name", 30);
-        $table->smallInteger("unionID");
-        $table->string("avatar", 30);
-        $table->string("password", 30);
+        $table->string("nick_name", 100);
+        $table->string("unionID",100);
+        $table->string("avatar", 150);
+        $table->string("password", 100);
         $table->integer("mobile");
         $table->tinyInteger("state");
         $table->integer("pID");
