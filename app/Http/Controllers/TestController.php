@@ -22,25 +22,27 @@ class TestController extends Controller
 
     public function getPic()
     {
-        $base_path=base_path('resources/pic/');
-        $img = Image::make($base_path."root.jpg");
-       // $img->save('public/bar.jpg');
-       $img->insert($base_path."qr.jpg",'bottom-right',110, 180);
-        $img->save(app_path()."/foo2.jpg");
-        $img->text('www', 100,100, function($font) use($base_path) {
-            $font->file($base_path."/lfaxd.ttf");
+        $base_path = base_path('resources/pic/');
+        $img = Image::make($base_path . "root.jpg");
+        // $img->save('public/bar.jpg');
+        $img->insert($base_path . "qr.jpg", 'bottom-right', 110, 180);
+        $img->save(app_path() . "/foo2.jpg");
+        $img->text(
+            'www', 100, 100, function ($font) use ($base_path) {
+            $font->file($base_path . "/lfaxd.ttf");
             $font->size(24);
             $font->color('#fdf6e3');
-         });
-        $img->save($base_path."/foo2.jpg");
+        }
+        );
+        $img->save($base_path . "/foo2.jpg");
         return $img->response('jpg');
     }
 
     public function getQr()
     {
-        $text="dddddddddddddddd";
-      //  $type = inputGet('type', 'png');
-      //  $size = inputGet('size', 100);
+        $text = "dddddddddddddddd";
+        //  $type = inputGet('type', 'png');
+        //  $size = inputGet('size', 100);
         $qrCode = new QrCode();
         $qrCode
             ->setText($text)
@@ -50,15 +52,25 @@ class TestController extends Controller
             ->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0))
             ->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0))
             ->setErrorCorrection(QrCode::LEVEL_MEDIUM);
-        $qrCode->save(app_path()."/qr.jpg");
+        $qrCode->save(app_path() . "/qr.jpg");
 
     }
 
-    
+
     public function getW()
     {
-        $s=inputGetOrFail('input');
+        $s = inputGetOrFail('input');
         return $s;
+    }
+
+
+    public function getMenus()
+    {
+        $wechat=app('wechat');
+        $menu = $wechat->menu;
+        $menus = $menu->all();
+       dump($menus);
+
     }
 
 }
