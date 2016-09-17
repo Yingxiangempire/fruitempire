@@ -66,32 +66,33 @@ class TestController extends Controller
 
     public function getMenus()
     {
-        $wechat=app('wechat');
+        $wechat = app('wechat');
         $menu = $wechat->menu;
-      return   $menus = $menu->all();
+        return $menus = $menu->all();
     }
 
-    public function getAddMenue(){
-        $wechat=app('wechat');
+    public function getAddMenu()
+    {
+        $wechat = app('wechat');
         $menu = $wechat->menu;
         $buttons = [
             [
                 "type" => "click",
                 "name" => "今日歌曲",
-                "key"  => "V1001_TODAY_MUSIC"
+                "key" => "V1001_TODAY_MUSIC"
             ],
             [
-                "name"       => "菜单",
+                "name" => "菜单",
                 "sub_button" => [
                     [
                         "type" => "view",
                         "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
+                        "url" => "http://www.soso.com/"
                     ],
                     [
                         "type" => "view",
                         "name" => "视频",
-                        "url"  => "http://v.qq.com/"
+                        "url" => "http://v.qq.com/"
                     ],
                     [
                         "type" => "click",
@@ -101,10 +102,17 @@ class TestController extends Controller
                 ],
             ],
         ];
-        return   $menu->add($buttons);
+        return $menu->add($buttons);
 
     }
 
+
+    public function getDelMenu()
+    {
+        $wechat = app('wechat');
+        $menu = $wechat->menu;
+        return $menu->destroy(inputGet('id',''));
+    }
 
 
 }
