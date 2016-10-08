@@ -34,8 +34,9 @@ class WechatController extends Controller
     {
         Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
         $userService = $this->wechat->user;
+        $qr=new LQr();
         $this->wechat->server->setMessageHandler(
-            function ($message) use ($userService) {
+            function ($message) use ($userService,$qr) {
 
                 if($message->EventKey == "EVENT_01"){
                     $openid = $message->FromUserName;
@@ -47,7 +48,6 @@ class WechatController extends Controller
                 if($message->EventKey == "EVENT_KEY_QR"){
                     $openid = $message->FromUserName;
                     $user = $userService->get($openid);
-                    $qr=new LQr();
                     $mediaId=$qr->uplaodQr($openid,$user->nickname);
                     $text = new Im(['media_id' => $mediaId['media_id']]);
                     return $text;
