@@ -79,7 +79,7 @@ class TestController extends Controller
             [
                 "type" => "click",
                 "name" => "申请代理",
-                "key" => "EVENT_KEY_01"
+                "key" => "EVENT_01"
             ],
             [
                 "type" => "click",
