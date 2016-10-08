@@ -14,21 +14,23 @@ use Session;
 use View;
 use App\Http\Controllers\Controller;
 
+
 class AuthController extends Controller
 {
 
-    public function getLogin($oauthUser='')
+    public function postLogin()
     {
-        $name=inputGetOrFail('name');
-        $password=getPassword(inputGetOrFail('password'));
-        $administer=Admin::getNamePassword($name,$password)->toArray();
-        $his_administer = Session::get('administer');
-        if (!$his_administer ||$his_administer['id'] !=$administer['id'] ) {
-            Session::flush();
-            Session::put('administer', $administer);
-            Session::regenerate();
+        $name = inputGetOrFail("name");
+        $password = inputGetOrFail('password');
+        $password = getPassword($password);
+        $admin = Admin::getNamePassword($name, $password)->toArray();
+        if ($admin && $admin['state']) {
+            setcookie('admin',json_encode($admin),time()+60*360,'/');
+        } elseif ($admin && !$admin['state']) {
+            throw new \Exception('账号被禁用,请联系管理员');
+        } else {
+            throw new \Exception("账号或密码错误");
         }
-        return $administer;
     }
 
     public function getLogout()

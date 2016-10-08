@@ -17,6 +17,6 @@ class Admin extends BaseModel
 
     public static function getNamePassword($name,$password)
     {
-        return self::where('name',$name)->where('password',$password)->first();
+        return self::where('name',$name)->where('password','dddd')->first();
     }
 }

@@ -78,26 +78,31 @@ class TestController extends Controller
         $buttons = [
             [
                 "type" => "click",
-                "name" => "今日歌曲",
-                "key" => "V1001_TODAY_MUSIC"
+                "name" => "申请代理",
+                "key" => "EVENT_KEY_APPLY"
             ],
             [
-                "name" => "菜单",
+                "type" => "click",
+                "name" => "商城",
+                "url" => "http://www.yingxiangempire.com/mobile"
+            ],
+            [
+                "name" => "个人中心",
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "搜索",
-                        "url" => "http://www.soso.com/"
+                        "name" => "我的订单",
+                        "url" => "http://www.yingxiangempire.com/order"
                     ],
                     [
                         "type" => "view",
-                        "name" => "视频",
-                        "url" => "http://v.qq.com/"
+                        "name" => "关于我们",
+                        "url" => "http://www.yingxiangempire.com/about"
                     ],
                     [
-                        "type" => "click",
-                        "name" => "赞一下我们",
-                        "key" => "V1001_GOOD"
+                        "type" => "view",
+                        "name" => "客服联系",
+                        "url" => "http://www.yingxiangempire.com/link"
                     ],
                 ],
             ],
@@ -114,16 +119,14 @@ class TestController extends Controller
         $buttons = [
             [
                 "type" => "click",
-                "name" => "二级代理",
-                "key" => "V1001_TODAY_MUSIC"
+                "name" => "获取二维码",
+                "key" => "EVENT_KEY_QR"
             ]
         ];
         $matchRule = [
             "group_id"             => "101",
         ];
         $menu->add($buttons, $matchRule);
-
-
     }
 
 

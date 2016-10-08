@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseInfoController;
 use Log;
 use Endroid\QrCode\QrCode;
 use Intervention\Image\Facades\Image;
@@ -34,6 +35,24 @@ class WechatController extends Controller
         $userService = $this->wechat->user;
         $this->wechat->server->setMessageHandler(
             function ($message) use ($userService) {
+
+                if($message->EventKey == "EVENT_KEY_APPLY"){
+                    $openid = $message->FromUserName;
+                    BaseInfoController::getApplyAgent($openid);
+                    $text = new Text(['content' => '申请已发送成功,请等待审核结果']);
+                    return $text;
+                }
+                
+                if($message->EventKey == "EVENT_KEY_QR"){
+                    $openid = $message->FromUserName;
+                    $user = $userService->get($openid);
+                    $qr=new \LQr();
+                    $mediaId=$qr->uplaodQr($openid,$user->nickname);
+                    $text = new Im(['media_id' => $mediaId['media_id']]);
+                    return $text;
+                }
+
+
 
                 $text = new Text(['content' => '您好！overtrue。']);
                /* $openid = $message->FromUserName;

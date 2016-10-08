@@ -21,17 +21,23 @@ class BaseController extends Controller
     {
         $user_id=1;
 
-        if (\Session::get('administer')) {
-            $this->administer = \Session::get('administer');
+        if ($_COOKIE['admin']) {
+            $this->administer = json_decode($_COOKIE['admin'],true);
         } else {
             if (!$user_id) {
                 throw new Exception("无效管理员");
             } else {
                 $administer = Admin::find($user_id)->toArray();
-                \Session::push('administer', $administer);
+                setcookie('admin',json_encode($administer),time()+60*360,'/');
                 $this->administer = $administer;
             }
         }
 
     }
+
+    public function getAdmin(){
+        return $this->administer;
+    }
+
+
 }

@@ -96,6 +96,12 @@ return [
     */
 
     'log' => env('APP_LOG', 'single'),
+    'qiniu' => [
+        'access_key' => env('QINIU_ACCESS_KEY'),
+        'secret_key' => env('QINIU_SECRET_KEY'),
+        'bucket' => env('QINIU_BUCKET_NAME'),
+        'domain'=> env('QINIU_DOMAIN')
+    ],
 
     /*
     |--------------------------------------------------------------------------
