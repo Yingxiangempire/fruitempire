@@ -82,11 +82,6 @@ class TestController extends Controller
                 "key" => "EVENT_01"
             ],
             [
-                "type" => "click",
-                "name" => "商城",
-                "url" => "http://www.yingxiangempire.com/mobile"
-            ],
-            [
                 "name" => "个人中心",
                 "sub_button" => [
                     [
