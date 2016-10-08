@@ -14,7 +14,7 @@ use Endroid\QrCode\QrCode;
 use Intervention\Image\Facades\Image;
 use EasyWeChat\Message\Image as Im;
 use EasyWeChat\Message\Text;
-use LQr;
+use App\Logic\LQr;
 
 class WechatController extends Controller
 {
