@@ -79,7 +79,7 @@ class TestController extends Controller
             [
                 "type" => "click",
                 "name" => "申请代理",
-                "key" => "EVENT_KEY_APPLY"
+                "key" => "EVENT_KEY_01"
             ],
             [
                 "type" => "click",
@@ -104,8 +104,8 @@ class TestController extends Controller
                         "name" => "客服联系",
                         "url" => "http://www.yingxiangempire.com/link"
                     ],
-                ],
-            ],
+                ]
+            ]
         ];
         return $menu->add($buttons);
 
