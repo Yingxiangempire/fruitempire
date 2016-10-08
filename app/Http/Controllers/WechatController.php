@@ -14,6 +14,7 @@ use Endroid\QrCode\QrCode;
 use Intervention\Image\Facades\Image;
 use EasyWeChat\Message\Image as Im;
 use EasyWeChat\Message\Text;
+use LQr;
 
 class WechatController extends Controller
 {
@@ -36,7 +37,7 @@ class WechatController extends Controller
         $this->wechat->server->setMessageHandler(
             function ($message) use ($userService) {
 
-                if($message->EventKey == "EVENT_KEY_APPLY"){
+                if($message->EventKey == "EVENT_01"){
                     $openid = $message->FromUserName;
                     BaseInfoController::getApplyAgent($openid);
                     $text = new Text(['content' => '申请已发送成功,请等待审核结果']);
@@ -46,7 +47,7 @@ class WechatController extends Controller
                 if($message->EventKey == "EVENT_KEY_QR"){
                     $openid = $message->FromUserName;
                     $user = $userService->get($openid);
-                    $qr=new \LQr();
+                    $qr=new LQr();
                     $mediaId=$qr->uplaodQr($openid,$user->nickname);
                     $text = new Im(['media_id' => $mediaId['media_id']]);
                     return $text;
