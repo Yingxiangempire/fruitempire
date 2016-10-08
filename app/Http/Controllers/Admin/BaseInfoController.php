@@ -33,7 +33,6 @@ class BaseInfoController  extends Controller
             $user->state=FtUser::APPLY_STATE;
         }
         $user->save();
-        FtUser::cacheForget();
     }
     
 }
