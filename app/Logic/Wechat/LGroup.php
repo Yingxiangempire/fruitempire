@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Logic;
 /**
  * Created by PhpStorm.
  * User: yuxiangwang
