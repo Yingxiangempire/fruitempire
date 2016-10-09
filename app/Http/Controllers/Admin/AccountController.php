@@ -64,8 +64,8 @@ class AccountController extends BaseController
         }else{
             $state=FtUser::INIT_STATE;
         }
-        $user=FtUser::getId($user['id']);
-        if(!$user) {
+        $users=FtUser::getId($user['id']);
+        if(!$users) {
             LUser::setUser($user['nickname'], $user['id'], $user['avatar'], $re_id, '', $state);
         }
     }
