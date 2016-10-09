@@ -88,6 +88,7 @@ class AuthController extends Controller
         /********************获取授权用户的信息后创建本地用户*************************/
         $oauthUser = Soc::driver('weixin')->user();
         $user=(array)$oauthUser;
+        dump($user);
         AccountController::afterQr($user,$p_user);
         /******************给分享者发送提醒*********************/
         $wechat = app('wechat');
