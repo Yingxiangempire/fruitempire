@@ -1,5 +1,6 @@
 <?php
-namespace App\Logic;
+namespace App\Logic\Wechat;
+
 /**
  * Created by PhpStorm.
  * User: yuxiangwang

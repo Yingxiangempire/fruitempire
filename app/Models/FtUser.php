@@ -15,7 +15,7 @@ class FtUser extends User
     public $timestamps = true;
     const INIT_PASSWORD = "18fruit";
     const INIT_STATE = 1; 
-    const APPLY_STATE = 2;
+    const FIRST_STATE = 2;
     const LOCK_STATE = -1;
     const SECOND_STATE = 3;
 

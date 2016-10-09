@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Admin\AccountController;
 use App\Models\FtUser;
 use App\User;
 use EasyWeChat\Support\Log;
@@ -87,11 +88,10 @@ class AuthController extends Controller
         /********************获取授权用户的信息后创建本地用户*************************/
         $oauthUser = Soc::driver('weixin')->user();
         $user=(array)$oauthUser;
-        $re_id=$p_user?$p_user['id']:0;
-        LUser::setUser($user['nickname'], $user['id'], $user['avatar'], $re_id);
+        AccountController::afterQr($user,$p_user);
         /******************给分享者发送提醒*********************/
         $wechat = app('wechat');
-        $message = new Text(['content' => '成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
+        $message = new Text(['content' => $user['nickname'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
         $result = $wechat->staff->message($message)->to($pid)->send();
         View::addExtension('html','blade');
         return  view('welcome');

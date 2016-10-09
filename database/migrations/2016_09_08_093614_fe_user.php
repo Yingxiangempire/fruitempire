@@ -9,7 +9,7 @@
         $table->string("unionID",100);
         $table->string("avatar", 150);
         $table->string("password", 100);
-        $table->integer("mobile");
+        $table->string("mobile",30);
         $table->tinyInteger("state");
         $table->integer("pID");
         $table->dateTime("created_at");
