@@ -60,7 +60,7 @@ class AccountController extends BaseController
         if($p_user['state']==2){//一级代理商
             $state=FtUser::SECOND_STATE;
             $group=new LGroup();
-            $group->setGroupUser(101, $user->unionID);
+            $group->setGroupUser(101, $user['unionID']);
         }else{
             $state=FtUser::INIT_STATE;
         }
