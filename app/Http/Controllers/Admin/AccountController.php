@@ -57,14 +57,17 @@ class AccountController extends BaseController
     public static function afterQr($user,$p_user)
     {
         $re_id=$p_user?$p_user['id']:0;
-        if($p_user['pID']==2){//一级代理商
+        if($p_user['state']==2){//一级代理商
             $state=FtUser::SECOND_STATE;
             $group=new LGroup();
             $group->setGroupUser(101, $user->unionID);
         }else{
             $state=FtUser::INIT_STATE;
         }
-        LUser::setUser($user['nickname'], $user['id'], $user['avatar'], $re_id,'',$state);
+        $user=FtUser::getId($user['id']);
+        if(!$user) {
+            LUser::setUser($user['nickname'], $user['id'], $user['avatar'], $re_id, '', $state);
+        }
     }
 
     
