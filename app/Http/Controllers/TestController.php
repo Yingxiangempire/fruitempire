@@ -78,8 +78,8 @@ class TestController extends Controller
         $buttons = [
             [
                 "type" => "click",
-                "name" => "申请代理",
-                "key" => "EVENT_01"
+                "name" => "我的商城",
+                "url" => "http://www.yingxiangempire.com/mobile"
             ],
             [
                 "name" => "个人中心",
@@ -116,10 +116,78 @@ class TestController extends Controller
                 "type" => "click",
                 "name" => "获取二维码",
                 "key" => "EVENT_KEY_QR"
+            ],
+            [
+                "name" => "个人中心",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "我的订单",
+                        "url" => "http://www.yingxiangempire.com/order"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "我的下级",
+                        "url" => "http://www.yingxiangempire.com/second"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "关于我们",
+                        "url" => "http://www.yingxiangempire.com/about"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "客服联系",
+                        "url" => "http://www.yingxiangempire.com/link"
+                    ],
+                ]
             ]
         ];
         $matchRule = [
-            "group_id"             => "101",
+            "group_id" => "101",
+        ];
+        $menu->add($buttons, $matchRule);
+    }
+
+    public function getAddSelf2Menu()
+    {
+        $wechat = app('wechat');
+        $menu = $wechat->menu;
+
+        $buttons = [
+            [
+                "type" => "click",
+                "name" => "获取二维码",
+                "key" => "EVENT_KEY_QR"
+            ],
+            [
+                "name" => "个人中心",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "我的订单",
+                        "url" => "http://www.yingxiangempire.com/order"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "我的下级",
+                        "url" => "http://www.yingxiangempire.com/second"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "关于我们",
+                        "url" => "http://www.yingxiangempire.com/about"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "客服联系",
+                        "url" => "http://www.yingxiangempire.com/link"
+                    ],
+                ]
+            ]
+        ];
+        $matchRule = [
+            "group_id" => "101",
         ];
         $menu->add($buttons, $matchRule);
     }
