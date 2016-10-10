@@ -98,9 +98,9 @@ class TestController extends Controller
                         "type" => "view",
                         "name" => "客服联系",
                         "url" => "http://www.yingxiangempire.com/link"
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ];
         return $menu->add($buttons);
 
