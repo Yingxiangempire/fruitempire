@@ -94,11 +94,6 @@ class TestController extends Controller
                         "name" => "关于我们",
                         "url" => "http://www.yingxiangempire.com/about"
                     ],
-                    [
-                        "type" => "view",
-                        "name" => "客服联系",
-                        "url" => "http://www.yingxiangempire.com/link"
-                    ],
                 ]
             ]
         ];
