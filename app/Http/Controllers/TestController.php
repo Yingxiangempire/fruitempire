@@ -77,7 +77,7 @@ class TestController extends Controller
         $menu = $wechat->menu;
         $buttons = [
             [
-                "type" => "click",
+                "type" => "view",
                 "name" => "我的商城",
                 "url" => "http://www.yingxiangempire.com/mobile"
             ],
