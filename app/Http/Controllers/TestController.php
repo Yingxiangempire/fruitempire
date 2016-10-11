@@ -140,8 +140,8 @@ class TestController extends Controller
                         "name" => "客服联系",
                         "url" => "http://www.yingxiangempire.com/link"
                     ],
-                ]
-            ]
+                ],
+            ],
         ];
         $matchRule = [
             "group_id" => "101",
@@ -187,7 +187,7 @@ class TestController extends Controller
             ]
         ];
         $matchRule = [
-            "group_id" => "101",
+            "group_id" => "102",
         ];
         $menu->add($buttons, $matchRule);
     }
