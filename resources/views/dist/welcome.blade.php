@@ -39,7 +39,7 @@
 <div class="container">
     <div class="content">
         <div class="title"><h6>点击下方图片,识别二维码添加关注</h6></div>
-        <img src="/image/430.jpg" class="img-circle avatar"  alt="User Image">
+        <img src="/image/860.jpg" class="img-circle avatar"  alt="User Image">
     </div>
 </div>
 </body>
