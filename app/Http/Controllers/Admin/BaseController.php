@@ -19,8 +19,6 @@ class BaseController extends Controller
 
     public function __construct($user_id = '')
     {
-        $user_id=1;
-
         if ($_COOKIE['admin']) {
             $this->administer = json_decode($_COOKIE['admin'],true);
         } else {

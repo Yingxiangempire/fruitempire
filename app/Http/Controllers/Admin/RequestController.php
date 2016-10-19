@@ -20,6 +20,7 @@ class RequestController extends BaseController
         \LUser::updateUser($user_id,'','','','','','',FtUser::SECOND_STATE);
         //创建后台管理者
         $user=FtUser::_findOrFail($user_id)->toArray();
+        
         \LAccount::setAdmin($user['nick_name'],'','', $user['unionID'], $user['avatar']);
         //转换至二级代理商分组
     }
