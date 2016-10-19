@@ -6,7 +6,7 @@
  * Date: 16/9/9
  * Time: 下午3:22
  */
-
+namespace App\Logic\Admin;
 use App\Models\Admin;
 
 class LAccount
