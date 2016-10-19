@@ -59,6 +59,7 @@ class AccountController extends BaseController
         $re_id=$p_user?$p_user['id']:0;
         if($p_user['state']==3){//一级代理商
             $state=FtUser::SECOND_STATE;
+            \LAccount::setAdmin($user['nickname'],'','', $user['unionID'], $user['avatar']);
             $group=new LGroup();
             $group->setGroupUser(101, $user['id']);
         }else{
