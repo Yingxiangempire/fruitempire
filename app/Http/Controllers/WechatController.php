@@ -8,7 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\BaseController;
 use App\Http\Controllers\Admin\BaseInfoController;
+use App\Logic\Admin\LAccount;
+use App\Models\Admin;
 use Log;
 use Endroid\QrCode\QrCode;
 use Intervention\Image\Facades\Image;
@@ -53,16 +56,24 @@ class WechatController extends Controller
                     return $text;
                 }
 
+                if($message->EventKey == "EVENT_KEY_AGENT"){
+                    $openid = $message->FromUserName;
+                    $user = $userService->get($openid);
+                    $admin=Admin::getNamePassword($user->nickname, getPassword(LAccount::INIT_PASSWORD))->toArray();
+                    $base=new BaseController($admin['id']);
+                    header("Location:http://www.yingxiangempire.com/#users");
+                }
 
 
-                $text = new Text(['content' => '您好！overtrue。']);
+
+                //$text = new Text(['content' => '您好！overtrue。']);
                /* $openid = $message->FromUserName;
                 $user = $userService->get($openid);
                 $qr=new \LQr();
                 $mediaId=$qr->uplaodQr($openid,$user->nickname);
                 $text = new Im(['media_id' => $mediaId['media_id']]);
                // return "wangyuxiang 欢迎你" . $openid . "你的微信号是:" . $user->nickname;*/
-                return $text;
+               // return $text;
             }
         );
         Log::info('return response.');

@@ -126,9 +126,9 @@ class TestController extends Controller
                         "url" => "http://www.yingxiangempire.com/order"
                     ],
                     [
-                        "type" => "view",
+                        "type" => "click",
                         "name" => "我的下级",
-                        "url" => "http://www.yingxiangempire.com/second"
+                        "key" => "EVENT_KEY_AGENT"
                     ],
                     [
                         "type" => "view",
