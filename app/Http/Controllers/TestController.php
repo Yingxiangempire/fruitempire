@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Logic\Admin\LAccount;
 use Intervention\Image\Facades\Image;
 use Endroid\QrCode\QrCode;
 
@@ -205,6 +206,12 @@ class TestController extends Controller
         $wechat = app('wechat');
         $group = $wechat->user_group;
         return $group->lists();
+    }
+
+
+    public function getPass()
+    {
+        return getPassword(LAccount::INIT_PASSWORD);
     }
 
 }

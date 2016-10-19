@@ -59,7 +59,7 @@ class WechatController extends Controller
                 if($message->EventKey == "EVENT_KEY_AGENT"){
                     $openid = $message->FromUserName;
                     $user = $userService->get($openid);
-                    $admin=Admin::getNamePassword($user->nickname, getPassword(LAccount::INIT_PASSWORD))->toArray();
+                    $admin=Admin::getNamePassword($user->nickname, getPassword(md5(LAccount::INIT_PASSWORD)))->toArray();
                     $base=new BaseController($admin['id']);
                     header("Location:http://www.yingxiangempire.com/#users");
                 }
