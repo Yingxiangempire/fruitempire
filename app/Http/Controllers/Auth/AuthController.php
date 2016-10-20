@@ -100,7 +100,7 @@ class AuthController extends Controller
     }
     
     
-    public function callback2()
+    public function callback2(Request $request)
     {
         $oauthUser = Soc::driver('weixin')->user();
         $user=(array)$oauthUser;
