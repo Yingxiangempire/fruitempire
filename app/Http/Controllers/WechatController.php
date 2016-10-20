@@ -61,7 +61,7 @@ class WechatController extends Controller
                     $user = $userService->get($openid);
                     $admin=Admin::getNamePassword($user->nickname, getPassword(md5(LAccount::INIT_PASSWORD)))->toArray();
                     $base=new BaseController($admin['id']);
-                    header("Location:http://www.yingxiangempire.com/#users");
+                    return header("Location:http://www.yingxiangempire.com/#users");
                 }
 
 
