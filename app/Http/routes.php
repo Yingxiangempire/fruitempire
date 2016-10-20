@@ -16,11 +16,13 @@ Route::get('/', function () {
     View::addExtension('html','blade');
     return view('index');
 });
-Route::get('/admin', 'Admin\IndexController@getIndex');
-//Route::get('/admin', function () {
-//    View::addExtension('html','blade');
-//    return view('login');
-//});
+//Route::get('/admin', 'Admin\IndexController@getIndex');
+Route::get('/admin', function () {
+    $wechat = app('wechat');
+    \Config::set('wechat.oauth.callback','http://www.yingxiangempire.com/auth/callback2?second=add');
+    $response = $wechat->oauth->scopes(['snsapi_userinfo'])->redirect();
+    $response->send();
+});
 
 
 Route::controller('/test', 'TestController');
