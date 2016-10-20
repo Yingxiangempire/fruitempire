@@ -27,6 +27,7 @@ Route::controller('/test', 'TestController');
 Route::get('/auth/oauth', 'Auth\AuthController@oauth');
 # 微信接口回调地址
 Route::get('/auth/callback', 'Auth\AuthController@callback');
+Route::get('/auth/callback2', 'Auth\AuthController@callback2');
 Route::controller('/auth', 'AuthController');
 #微信调用接口默认不能随意修改
 Route::any('/wechat', 'WechatController@serve');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\BaseController;
+use App\Models\Admin;
 use App\Models\FtUser;
 use App\User;
 use EasyWeChat\Support\Log;
@@ -95,5 +97,21 @@ class AuthController extends Controller
         $result = $wechat->staff->message($message)->to($pid)->send();
         View::addExtension('html','blade');
         return  view('welcome');
+    }
+    
+    
+    public function callback2()
+    {
+        $oauthUser = Soc::driver('weixin')->user();
+        $user=(array)$oauthUser;
+        $admin=Admin::getName($user['nickname']);
+        new BaseController($admin->id);
+        $parameter=Request::all();
+        if(array_key_exists('second',$parameter)){
+            header("Location:http://www.yingxiangempire.com/#users");
+        }else{
+            header("Location:http://www.yingxiangempire.com");
+        }
+
     }
 }

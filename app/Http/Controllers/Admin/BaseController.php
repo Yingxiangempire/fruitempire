@@ -47,7 +47,8 @@ class BaseController extends Controller
         } else {
             if (!$user_id) {
                  $wechat = app('wechat');
-                 $response = $wechat->oauth->scopes(['snsapi_base'])->redirect();
+                \Config::set('wechat.oauth.callback','http://www.yingxiangempire.com/auth/callback2?second=add');
+                 $response = $wechat->oauth->scopes(['snsapi_userinfo'])->redirect();
                  $response->send();
             } else {
                 $administer = Admin::find($user_id)->toArray();
