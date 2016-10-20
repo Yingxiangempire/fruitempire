@@ -77,7 +77,8 @@ class WechatController extends Controller
             }
         );
         Log::info('return response.');
-        return $this->wechat->server->serve();
+        $response =$this->wechat->server->serve();
+        $response->send();
     }
 
     
