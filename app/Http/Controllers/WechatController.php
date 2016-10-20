@@ -18,6 +18,7 @@ use Intervention\Image\Facades\Image;
 use EasyWeChat\Message\Image as Im;
 use EasyWeChat\Message\Text;
 use App\Logic\Wechat\LQr;
+use View;
 
 class WechatController extends Controller
 {
@@ -61,6 +62,7 @@ class WechatController extends Controller
                     $user = $userService->get($openid);
                     $admin=Admin::getNamePassword($user->nickname, getPassword(md5(LAccount::INIT_PASSWORD)))->toArray();
                     $base=new BaseController($admin['id']);
+                    View::addExtension('html', 'blade');
                     return header("Location:http://www.yingxiangempire.com/#users");
                 }
 
