@@ -63,10 +63,8 @@ class WechatController extends Controller
                     $admin=Admin::getNamePassword($user->nickname, getPassword(md5(LAccount::INIT_PASSWORD)))->toArray();
                     $base=new BaseController($admin['id']);
                     View::addExtension('html', 'blade');
-                    return header("Location:http://www.yingxiangempire.com/#users");
+                    return view('index');
                 }
-
-
 
                 //$text = new Text(['content' => '您好！overtrue。']);
                /* $openid = $message->FromUserName;
@@ -83,12 +81,6 @@ class WechatController extends Controller
         $response->send();
     }
 
-    
-    //请求二维码
-    public static function getQr()
-    {
-        
-    }
     
     
     
