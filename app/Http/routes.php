@@ -16,10 +16,11 @@ Route::get('/', function () {
     View::addExtension('html','blade');
     return view('index');
 });
-Route::get('/admin', function () {
-    View::addExtension('html','blade');
-    return view('login');
-});
+Route::get('/admin', 'Admin\IndexController@getIndex');
+//Route::get('/admin', function () {
+//    View::addExtension('html','blade');
+//    return view('login');
+//});
 
 
 Route::controller('/test', 'TestController');

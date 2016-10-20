@@ -19,11 +19,36 @@ class BaseController extends Controller
 
     public function __construct($user_id = '')
     {
+
+        //      if (array_key_exists("member", $_COOKIE)) {
+//           $members = json_decode($_COOKIE['member'], true);
+//        } else {
+//            $members = [];
+//        }
+//       if (!$members) {
+//            $wechat = app('wechat');
+//            $response = $wechat->oauth->scopes(['snsapi_login'])->redirect();
+//            $response->send();
+//        } elseif (!$members['phone'] && !array_key_exists('info', $_GET)) {
+//           header("Location:baseinfo/register?user_id=" . $members['id']);
+//        } else {
+//            if ($members['phone']) {
+//               $edition = $this->getSetting($members['edition']);
+//               $members += ['edition_info' => $edition];
+//           }
+//           $this->member = $members;
+//        }
+
+
+
+
         if (array_key_exists("admin",$_COOKIE)) {
             $this->administer = json_decode($_COOKIE['admin'],true);
         } else {
             if (!$user_id) {
-                throw new Exception("无效管理员");
+                 $wechat = app('wechat');
+                 $response = $wechat->oauth->redirect();
+                 $response->send();
             } else {
                 $administer = Admin::find($user_id)->toArray();
                 setcookie('admin',json_encode($administer),time()+60*360,'/');
