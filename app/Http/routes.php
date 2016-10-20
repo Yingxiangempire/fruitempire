@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 //Route::get('/admin', 'Admin\IndexController@getIndex');
 Route::get('/admin', function () {
+    \Config::set('wechat.oauth.callback','/auth/callback2?second=add');
     $wechat = app('wechat');
-    \Config::set('wechat.oauth.callback','http://www.yingxiangempire.com/auth/callback2?second=add');
     $response = $wechat->oauth->scopes(['snsapi_userinfo'])->redirect();
     $response->send();
 });
