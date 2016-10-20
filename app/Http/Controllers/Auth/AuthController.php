@@ -107,9 +107,6 @@ class AuthController extends Controller
         $admin=Admin::getName($user['nickname']);
         new BaseController($admin->id);
         $parameter=Request::all();
-        View::addExtension('html','blade');
-
-        return  view('welcome');
         if(array_key_exists('second',$parameter)){
             header("Location:http://www.yingxiangempire.com/#users");
         }else{
