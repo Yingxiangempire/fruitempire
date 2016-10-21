@@ -139,7 +139,7 @@ class TestController extends Controller
                     [
                         "type" => "view",
                         "name" => "客服联系",
-                        "url" => "http://www.yingxiangempire.com/link"
+                        "url" => "http://www.baidu.com"
                     ],
                 ],
             ],
