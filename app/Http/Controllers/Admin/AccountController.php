@@ -22,7 +22,7 @@ class AccountController extends BaseController
         $type=inputGet('type','');
         if($type=="my"){
             $p_user=FtUser::getId($this->administer['weixin']);
-            return FtUser::getSelfUser($p_user->pID);
+            return FtUser::getSelfUser($p_user->id);
         }
         return FtUser::getUser($type);
     }
