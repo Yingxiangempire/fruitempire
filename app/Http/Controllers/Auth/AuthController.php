@@ -108,7 +108,7 @@ class AuthController extends Controller
         new BaseController($admin->id);
         $parameter=Request::all();
         if(array_key_exists('second',$parameter)){
-            header("Location:http://www.yingxiangempire.com/#users");
+            header("Location:http://www.yingxiangempire.com/#agent_user");
         }else{
             header("Location:http://www.yingxiangempire.com");
         }
