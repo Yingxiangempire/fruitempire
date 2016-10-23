@@ -24,6 +24,13 @@ Route::get('/admin', function () {
     $response->send();
 });
 
+Route::get('/order', function () {
+    \Config::set('wechat.oauth.callback','/auth/callback2');
+    $wechat = app('wechat');
+    $response = $wechat->oauth->scopes(['snsapi_userinfo'])->redirect();
+    $response->send();
+});
+
 
 Route::controller('/test', 'TestController');
 Route::get('/auth/oauth', 'Auth\AuthController@oauth');
