@@ -29,4 +29,9 @@ class FtUser extends User
         return self::where('unionID',$unionID)->first();
     }
 
+    public static function getSelfUser($pID)
+    {
+        return self::where('pID',$pID)->where("state",">",0)->paginate(get_page_size());
+    }
+
 }

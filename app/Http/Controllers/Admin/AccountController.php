@@ -20,6 +20,10 @@ class AccountController extends BaseController
     public function getUsers()
     {
         $type=inputGet('type','');
+        if($type=="my"){
+            $p_user=FtUser::getId($this->administer['weixin']);
+            return FtUser::getSelfUser($p_user->pID);
+        }
         return FtUser::getUser($type);
     }
 
@@ -71,6 +75,8 @@ class AccountController extends BaseController
             LUser::setUser($user['nickname'], $user['id'], $user['avatar'], $re_id, '', $state);
         }
     }
+
+
 
     
 
