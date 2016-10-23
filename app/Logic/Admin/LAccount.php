@@ -12,7 +12,7 @@ use App\Models\Admin;
 class LAccount
 {
     const INIT_PASSWORD = "18fruit";
-    const INIT_STATE = 1;
+    const INIT_STATE = 2;
 
     public static function setAdmin($name, $email='', $qq = '', $weixin = '', $avatar = '')
     {
