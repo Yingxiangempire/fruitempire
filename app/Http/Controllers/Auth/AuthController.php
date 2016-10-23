@@ -110,7 +110,7 @@ class AuthController extends Controller
         if(array_key_exists('second',$parameter)){
             header("Location:http://www.yingxiangempire.com/#agent_user");
         }else{
-            header("Location:http://www.yingxiangempire.com");
+            header("Location:http://www.yingxiangempire.com/#wait");
         }
 
     }

@@ -80,25 +80,15 @@ class TestController extends Controller
             [
                 "type" => "view",
                 "name" => "我的商城",
-                "url" => "http://www.yingxiangempire.com/mobile"
+                "url" => "http://wap.koudaitong.com/v2/showcase/homepage?alias=1190po8g"
             ],
             [
                 "name" => "个人中心",
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "我的订单",
-                        "url" => "http://www.yingxiangempire.com/order"
-                    ],
-                    [
-                        "type" => "view",
                         "name" => "关于我们",
-                        "url" => "http://www.yingxiangempire.com/about"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "客服联系",
-                        "url" => "http://www.yingxiangempire.com/link"
+                        "url" => "http://eqxiu.com/s/YH6X3s30"
                     ],
                 ],
             ],
@@ -134,12 +124,7 @@ class TestController extends Controller
                     [
                         "type" => "view",
                         "name" => "关于我们",
-                        "url" => "http://www.yingxiangempire.com/about"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "客服联系",
-                        "url" => "http://www.baidu.com"
+                        "url" => "http://eqxiu.com/s/YH6X3s30"
                     ],
                 ],
             ],
@@ -177,12 +162,7 @@ class TestController extends Controller
                     [
                         "type" => "view",
                         "name" => "关于我们",
-                        "url" => "http://www.yingxiangempire.com/about"
-                    ],
-                    [
-                        "type" => "view",
-                        "name" => "客服联系",
-                        "url" => "http://www.yingxiangempire.com/link"
+                        "url" => "http://eqxiu.com/s/YH6X3s30"
                     ],
                 ]
             ]

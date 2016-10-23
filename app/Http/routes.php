@@ -40,6 +40,7 @@ Route::any('/wechat', 'WechatController@serve');
 
 /*************************管理后台路由***********************/
 Route::controller('/admin_auth', 'Admin\AuthController');
+Route::controller('/order', 'Admin\BaseController');
 Route::controller('/admin_base', 'Admin\BaseController');
 Route::controller('/aaccount', 'Admin\AccountController');
 Route::controller('/abaseinfo', 'Admin\BaseInfoController');
