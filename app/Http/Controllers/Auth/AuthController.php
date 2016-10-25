@@ -95,7 +95,7 @@ class AuthController extends Controller
         $wechat = app('wechat');
         $message = new Text(['content' => $user['nickname'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
         $result = $wechat->staff->message($message)->to($pid)->send();
-        header("Location:https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3MTU5NTM5Ng==&scene=110#wechat_redirect");
+       
     }
     
     
