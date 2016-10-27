@@ -95,7 +95,8 @@ class AuthController extends Controller
         $wechat = app('wechat');
         $message = new Text(['content' => $user['nickname'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
         $result = $wechat->staff->message($message)->to($pid)->send();
-       
+        View::addExtension('html','blade');
+        return  view('welcome');
     }
     
     
