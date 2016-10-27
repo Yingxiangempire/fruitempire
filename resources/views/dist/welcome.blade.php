@@ -39,7 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title"><h6>点击下方图片,识别二维码添加关注</h6></div>
-                <a href="weixin://contacts/profile/gh_bba2dd0d64a3">点击关注微市场</a>
+                <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzA3MTU5NTM5Ng==&scene=110#wechat_redirect">点击关注微市场</a>
                 <img src="/image/258.jpg" class="img-circle avatar"  alt="User Image">
 
             </div>
