@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 use App\Logic\Admin\LAccount;
+use App\Logic\Wechat\LNotice;
 use Intervention\Image\Facades\Image;
 use Endroid\QrCode\QrCode;
 
@@ -193,5 +194,12 @@ class TestController extends Controller
     {
         return getPassword(LAccount::INIT_PASSWORD);
     }
+
+    public function getIndustry()
+    {
+        $norice = new LNotice();
+        return $indeustry = $norice->getIndustry();
+    }
+
 
 }
