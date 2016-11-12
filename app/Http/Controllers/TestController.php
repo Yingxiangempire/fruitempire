@@ -198,7 +198,7 @@ class TestController extends Controller
     public function getIndustry()
     {
         $norice = new LNotice();
-        return $indeustry = $norice->getIndustry();
+        return $indeustry = $norice->getPrivateTemplates();
     }
 
 
