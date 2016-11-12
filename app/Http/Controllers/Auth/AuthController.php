@@ -19,6 +19,7 @@ use EasyWeChat\Message\Text;
 use App\Logic\Home\LUser;
 
 use View;
+use App\Logic\Wechat\LNotice;
 
 class AuthController extends Controller
 {
@@ -92,9 +93,20 @@ class AuthController extends Controller
         $user=(array)$oauthUser;
         AccountController::afterQr($user,$p_user);
         /******************给分享者发送提醒*********************/
-        $wechat = app('wechat');
-        $message = new Text(['content' => $user['nickname'].'成为了您的下级代理商了,您将获得所有与他相关的购买返点!']);
-        $result = $wechat->staff->message($message)->to($pid)->send();
+        $notice = new LNotice();
+        $userId = $pid;
+        $templateId = '2W3JIuY4cFk9legTh-qgrywdIXnrX6H01UTXoW8HW78';
+        $url = 'http://www.yingxiangempire.com/#agent_user';
+        $color = '#FF0000';
+        $user_name=$user['nickname'];
+        $data = array(
+            "first"  => "恭喜您,用户[$user_name]已通过扫码加入,",
+            "keyword1"   => $user_name,
+            "keyword2"  => date('Y-m-d H:i'),
+            "remark" => "您将获得所有与他相关的购买返点,感谢您的推荐!",
+        );
+        $result = $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
+        var_dump($result);
         View::addExtension('html','blade');
         return  view('welcome');
     }
