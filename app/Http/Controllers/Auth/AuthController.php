@@ -93,7 +93,8 @@ class AuthController extends Controller
         $user=(array)$oauthUser;
         AccountController::afterQr($user,$p_user);
         /******************给分享者发送提醒*********************/
-        $notice = new LNotice();
+        $wechat = app('wechat');
+        $notice = $wechat->notice;
         $userId = $pid;
         $templateId = '2W3JIuY4cFk9legTh-qgrywdIXnrX6H01UTXoW8HW78';
         $url = 'http://www.yingxiangempire.com/#agent_user';
