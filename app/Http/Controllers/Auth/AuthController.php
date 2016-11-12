@@ -107,7 +107,6 @@ class AuthController extends Controller
             "remark" => "您将获得所有与他相关的购买返点,感谢您的推荐!",
         );
         $result = $notice->uses($templateId)->withUrl($url)->andData($data)->andReceiver($userId)->send();
-        var_dump($result);
         View::addExtension('html','blade');
         return  view('welcome');
     }
