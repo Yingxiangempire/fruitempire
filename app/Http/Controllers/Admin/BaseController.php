@@ -41,7 +41,7 @@ class BaseController extends Controller
 
 
 
-
+        $user_id=1;
         if (array_key_exists("admin",$_COOKIE)) {
             $this->administer = json_decode($_COOKIE['admin'],true);
         } else {
